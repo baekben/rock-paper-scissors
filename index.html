@@ -49,38 +49,37 @@
         var playerScore = 0;
         var computerScore = 0;
         var ties = 0;
-        alert("Let's play a game of Rock, Paper, Scissors. Best out of 5");
+        let intro = "Let's play a game of Rock, Paper, Scissors. Best out of 5";
+        alert(intro);
         for (let i = 0; i < rounds; i++) {
           let player = playerChoice();
           let round = playRound(player, computerPlay());
           if (round.includes('You Win!')) {
-            playerScore += 1;
-            alert(round);
+            console.log((playerScore += 1));
           } else if (round.includes('You Lose!')) {
-            computerScore += 1;
-            alert(round);
+            console.log((computerScore += 1));
           } else {
-            ties += 1;
-            alert(round);
+            console.log((ties += 1));
           }
         }
         if (playerScore > computerScore) {
-          console.log('You are the winner!!');
+          alert('You are the winner!!');
         } else if (playerScore == computerScore) {
-          console.log('It was a tie');
+          alert('It was a tie');
         } else {
-          console.log('You Lost');
+          alert('You Lost');
         }
-        console.log(
+        let results =
           'Player Score: ' +
-            playerScore +
-            ' | ' +
-            'Computer Score: ' +
-            computerScore +
-            '. There were ' +
-            ties +
-            'ties/draws in this game.'
-        );
+          playerScore +
+          ' | ' +
+          'Computer Score: ' +
+          computerScore +
+          '. There were ' +
+          ties +
+          'ties/draws in this game.';
+        console.log(results);
+        alert(results);
       }
       function playerChoice() {
         let player = prompt('Rock, Paper, or Scissors?');
