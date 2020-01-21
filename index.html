@@ -16,43 +16,42 @@
       }
       function playRound(playerSelection, computerSelection) {
         //a single round of the game
-        if (player == 'rock') {
-          return computerSelection == 'rock'
-            ? "It's a tie!"
-            : computerSelection == 'paper'
-            ? 'You Lose! Paper beats Rock'
-            : 'You Win! Rock beats Scissors'; // if the computer was scissors
-        } else if (player == 'paper') {
-          return computerSelection == 'rock'
-            ? 'You Win! Paper beats Rock'
-            : computerSelection == 'paper'
-            ? "It's a tie!"
-            : 'You Lose! Scissors beats paper';
+        if (playerSelection == computerSelection) {
+          return "It's a tie";
+        } else if (
+          (playerSelection == 'rock' && computerSelection == 'paper') ||
+          (playerSelection == 'paper' && computerSelection == 'scissors') ||
+          (playerSelection == 'scissors' && computerSelection == 'rock')
+        ) {
+          return (
+            'You Lose! ' +
+            computerSelection.charAt(0).toUpperCase() +
+            computerSelection.substring(1) +
+            ' beats ' +
+            playerSelection.charAt(0).toUpperCase() +
+            playerSelection.substring(1)
+          );
         } else {
-          // player chose scissors
-          return computerSelection == 'rock'
-            ? 'You Lose! Rock beats Scissors'
-            : computerSelection == 'paper'
-            ? 'You Win! Scissors beats Paper'
-            : "It's a tie!";
+          return (
+            'You Win! ' +
+            playerSelection.charAt(0).toUpperCase() +
+            playerSelection.substring(1) +
+            ' beats ' +
+            computerSelection.charAt(0).toUpperCase() +
+            computerSelection.substring(1)
+          );
         }
       }
 
       function game() {
+        // plays the game
         let rounds = 5;
         var playerScore = 0;
         var computerScore = 0;
         var ties = 0;
-        alert('Rock, Paper, Scissors. Best out of 5');
+        alert("Let's play a game of Rock, Paper, Scissors. Best out of 5");
         for (let i = 0; i < rounds; i++) {
-          while (true) {
-            let player = prompt('Rock, Paper, or Scissors?').toLowerCase();
-            if (player != ('rock' || 'paper' || 'scissor')) {
-              break;
-            } else {
-              alert('Enter one of the choices');
-            }
-          }
+          let player = playerChoice();
           let round = playRound(player, computerPlay());
           if (round.includes('You Win!')) {
             playerScore += 1;
@@ -83,6 +82,17 @@
             'ties/draws in this game.'
         );
       }
+      function playerChoice() {
+        let player = prompt('Rock, Paper, or Scissors?');
+        player = player.toLowerCase();
+        while (player != 'rock' && player != 'paper' && player != 'scissors') {
+          player = prompt(
+            'Invalid: Type Rock, Paper, or Scissors as one of your choices.'
+          ).toLowerCase();
+        }
+        return player;
+      }
+
       game();
     </script>
   </body>
