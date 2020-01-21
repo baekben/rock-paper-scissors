@@ -29,13 +29,16 @@
             : computerSelection == 'paper'
             ? "It's a tie!"
             : 'You Lose! Scissors beats paper';
-        } else {
+        } else if (player == 'scissors') {
           // player chose scissors
           return computerSelection == 'rock'
             ? 'You Lose! Rock beats Scissors'
             : computerSelection == 'paper'
             ? 'You Win! Scissors beats Paper'
             : "It's a tie!";
+        } else {
+          alert("I didn't get that. Try Again.");
+          break;
         }
       }
 
@@ -44,16 +47,21 @@
         var playerScore = 0;
         var computerScore = 0;
         var ties = 0;
+        alert('Rock, Paper, Scissors. Best out of 5');
         for (let i = 0; i < rounds; i++) {
           let player = prompt('Rock, Paper, or Scissors?');
-          alert('Best out of 5');
           let round = playRound(player, computerPlay());
           if (round.includes('You Win!')) {
             playerScore += 1;
+            alert(round);
           } else if (round.includes('You Lose!')) {
             computerScore += 1;
-          } else {
+            alert(round);
+          } else if (round.includes("It's a tie")) {
             ties += 1;
+            alert(round);
+          } else {
+            break;
           }
         }
         if (playerScore > computerScore) {
@@ -74,6 +82,7 @@
             'ties/draws in this game.'
         );
       }
+      game();
     </script>
   </body>
 </html>
