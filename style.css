@@ -1,0 +1,17 @@
+.introMessage {
+  color: black;
+  text-align: center;
+}
+#move {
+  display: none;
+  align-items: center;
+}
+#start {
+  display: block;
+}
+#score li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 2px 3px 2px 3px;
+  border-left: 2px solid black;
+}
