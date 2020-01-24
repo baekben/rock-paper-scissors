@@ -13,9 +13,12 @@
       <button id="start" onclick="start()">Start</button>
     </div>
     <div id="move">
-      <button id="rock" data-move="rock">Rock</button>
-      <button id="paper" data-move="paper">Paper</button>
-      <button id="scissors" data-move="scissors">Scissors</button>
+      <ul id="choices">
+        <li><button id="rock" data-move="rock">Rock</button></li>
+        <li><button id="paper" data-move="paper">Paper</button></li>
+        <li><button id="scissors" data-move="scissors">Scissors</button></li>
+      </ul>
+
       <ul id="score">
         <li id="playerScore">Player Score: 0</li>
         <li id="computerScore">Computer Score: 0</li>
@@ -28,4 +31,7 @@
     </div>
     <script src="game.js"></script>
   </body>
+  <footer>
+    <h2>Created by: Ben Baek</h2>
+  </footer>
 </html>
