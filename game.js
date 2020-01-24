@@ -12,7 +12,6 @@ function playRound(playerSelection, computerSelection) {
   //a single round of the game
   if (playerSelection == computerSelection) {
     ties++;
-    console.log('ties:' + ties);
     return "It's a tie";
   } else if (
     (playerSelection == 'rock' && computerSelection == 'paper') ||
@@ -20,11 +19,9 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection == 'scissors' && computerSelection == 'rock')
   ) {
     computerScore++;
-    console.log('comp:' + computerScore);
     return 'You Lose! ' + computerSelection + ' beats ' + playerSelection;
   } else {
     playerScore++;
-    console.log('PLayer:' + playerScore);
     return 'You Win! ' + playerSelection + ' beats ' + computerSelection;
   }
 }
@@ -53,6 +50,16 @@ function results() {
     win.innerHTML = 'You Win!';
   } else {
     win.innerHTML = 'You Lose.';
+  }
+  disableBtns();
+  win.insertAdjacentHTML(
+    'afterend',
+    '<button onclick = location.reload()>Play Again?</button>'
+  );
+}
+function disableBtns() {
+  for (i = 0; i < choices.length; i++) {
+    document.getElementById(choices[i]).disabled = true;
   }
 }
 function start() {
