@@ -62,6 +62,7 @@ function disableBtns() {
     document.getElementById(choices[i]).disabled = true;
   }
 }
+
 function start() {
   var x = document.getElementById('move');
   var y = document.getElementById('start');
